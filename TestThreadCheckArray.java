@@ -1,16 +1,28 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The TestThreadCheckArray class is the main entry point for testing the subset sum algorithm.
+ * It manages user input, populates an {@code ArrayList<Integer>}, and initializes the worker threads.
+ */
 public class TestThreadCheckArray {
+
+    /**
+     * The main method that sets up the environment and starts the threads.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
             Thread thread1, thread2;
             System.out.println("Enter array size");
             int num  = input.nextInt();
-            int[] array = new int[num];
+
+            ArrayList<Integer> array = new ArrayList<>();
             System.out.println("Enter numbers for array");
 
             for (int index = 0; index < num; index++)
-                array[index] = input.nextInt();
+                array.add(input.nextInt());
 
             System.out.println("Enter number");
             num = input.nextInt();
@@ -31,9 +43,9 @@ public class TestThreadCheckArray {
                 System.out.println("Sorry");
                 return;
             }
-            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
+            System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size());
             System.out.print("I:    ");
-            for(int index = 0; index < sd.getArray().length ; index++)
+            for(int index = 0; index < sd.getArray().size() ; index++)
                 System.out.print(index + "    ");
             System.out.println();
             System.out.print("A:    ");
